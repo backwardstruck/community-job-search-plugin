@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "community-job-search",
+  "description": "Job-search toolkit for mid-career people looking at tech companies: resume tailoring, job listing triage, recruiter triage, and a pipeline CRM",
+  "owner": {
+    "name": "community-job-search maintainers"
+  },
+  "plugins": [
+    {
+      "name": "community-job-search",
+      "source": "./plugins/community-job-search",
+      "description": "Resume tailoring, job listing triage, recruiter triage, and a pipeline CRM. Everything personal lives in your own profile.md.",
+      "version": "0.1.0"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Claude Code agent state
+.claude/
+
+# Your personal data. Keep it out of the repo if you fork or contribute back.
+# Your filled-in profile should live in your own local copy; see the README.
+profile.local.md
+profile-private.md
+pipeline.md
+*.pdf
+*.docx
+*.zip
