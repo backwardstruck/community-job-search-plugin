@@ -1,8 +1,34 @@
+<p align="right">
+  <a href="#new-to-claude-or-plugins">New to Claude or plugins?</a> ·
+  <a href="https://claude.ai/download">Get Claude Desktop</a> ·
+  <a href="https://docs.claude.com/en/docs/claude-code/overview">Get Claude Code</a> ·
+  <a href="https://docs.claude.com/en/docs/claude-code/plugins">Plugin docs</a>
+</p>
+
 # community-job-search-plugin
 
 A Claude plugin for running a job search: triage listings, tailor applications, handle recruiter outreach, and keep a pipeline that doesn't rot. Built for mid-career people looking at tech companies, any role (engineering, product, design, data, ops, and so on).
 
-**Nothing personal lives in the skills.** Everything about you (history, targets, location rules, comp, voice) goes in one file: `plugins/community-job-search/profile/profile.md`. Fill that in and every skill picks it up.
+## Overview
+
+You paste in a pile of job listings, a job description, or a recruiter's message. Claude scores, tailors, or drafts a reply, using your real history and your own rules (location, comp, dealbreakers) so nothing gets invented or overclaimed. A simple `pipeline.md` file tracks where every application stands.
+
+**Nothing personal lives in the skills.** Everything about you (history, targets, location rules, comp, voice) goes in one file: `plugins/community-job-search/profile/profile.md`. Fill that in and every skill picks it up. That file stays on your computer.
+
+## Prerequisites
+
+- **A Claude account** (claude.ai). A paid plan is required for plugins.
+- **One of these apps** to run the plugin:
+  - **Claude desktop app** (Cowork mode): the easier start, no terminal needed.
+  - **Claude Code**: a command-line tool, better if you're already comfortable in a terminal.
+- **Git, or a zip download,** to get a local copy of this repo.
+- **Optional:** the Gmail connector, for `/pipeline sync`.
+
+### New to Claude or plugins?
+
+- **Claude** is an AI assistant. You chat with it, and it can read and write files on your computer when you allow it.
+- **A plugin** is a folder of instructions (called *skills*) that teaches Claude how to do a specific job. This one teaches Claude how to help with a job search. Installing it means pointing Claude at the folder.
+- **Claude desktop vs. Claude Code:** both run plugins. Pick the desktop app if you'd rather click than type commands.
 
 ## Skills
 
