@@ -1,8 +1,8 @@
 <p align="right">
   <a href="#new-to-claude-or-plugins">New to Claude or plugins?</a> ·
-  <a href="https://claude.ai/download">Get Claude Desktop</a> ·
-  <a href="https://docs.claude.com/en/docs/claude-code/overview">Get Claude Code</a> ·
-  <a href="https://docs.claude.com/en/docs/claude-code/plugins">Plugin docs</a>
+  <a href="https://claude.com/download">Get Claude Desktop</a> ·
+  <a href="https://code.claude.com/docs/en/overview">Get Claude Code</a> ·
+  <a href="https://code.claude.com/docs/en/plugins">Plugin docs</a>
 </p>
 
 # community-job-search-plugin
@@ -29,6 +29,12 @@ You paste in a pile of job listings, a job description, or a recruiter's message
 - **Claude** is an AI assistant. You chat with it, and it can read and write files on your computer when you allow it.
 - **A plugin** is a folder of instructions (called *skills*) that teaches Claude how to do a specific job. This one teaches Claude how to help with a job search. Installing it means pointing Claude at the folder.
 - **Claude desktop vs. Claude Code:** both run plugins. Pick the desktop app if you'd rather click than type commands.
+
+Further reading:
+- [Download the Claude desktop app](https://claude.com/download)
+- [Claude Code overview](https://code.claude.com/docs/en/overview)
+- [How plugins work](https://code.claude.com/docs/en/plugins)
+- [How plugin marketplaces work](https://code.claude.com/docs/en/plugin-marketplaces) (this repo is one)
 
 ## Skills
 
