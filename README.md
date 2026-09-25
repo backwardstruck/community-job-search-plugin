@@ -80,6 +80,10 @@ Further reading:
 
 When this repo gets updates, pull them into your copy. Your `profile.md` edits may conflict with template changes; keep your content and adopt any new sections.
 
+## License
+
+[MIT](LICENSE)
+
 ## Version
 
 0.1.0
