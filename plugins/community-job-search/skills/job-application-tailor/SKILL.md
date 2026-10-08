@@ -1,10 +1,10 @@
 ---
 name: job-application-tailor
-version: 0.1.0
+version: 0.2.0
 description: Tailors a resume, writes a short cover letter, and scores job fit when the user gives a job description. Use this whenever the user pastes or links a JD, a job posting, or a role at a company, or asks "should I apply to this," "tailor my resume for this," "write a cover letter for," or "how good a fit is this role." A pasted job description plus any intent to apply, assess, or position themselves is enough to trigger, even without the words "resume" or "skill."
 ---
 
-**Skill version: 0.1.0.** Keep this equal to the `version` in the frontmatter. Stamp every artifact you produce with it (see *Version stamp*).
+**Skill version: 0.2.0.** Keep this equal to the `version` in the frontmatter. Stamp every artifact you produce with it (see *Version stamp*).
 
 # Job Application Tailor
 
@@ -14,12 +14,21 @@ When the user provides a job description, produce **application-ready** material
 
 The goal is to let the user apply fast without the result sounding generic or AI-written. A recruiter should "get" the resume in under 20 seconds, and the cover letter should read like a real person wrote it in one sitting.
 
+## The profile (this skill never edits it)
+
+Facts about the user live in **`~/Documents/job-search/profile.md`**, inside their working folder `~/Documents/job-search/`. It sits outside the plugin on purpose: plugin updates replace the plugin folder, and the profile has to survive them.
+
+- **Read it fresh** before using any fact about the user.
+- **Never overwrite, rewrite, reformat, or delete anything in `profile.md`.**
+- **If the file doesn't exist:** say so, and offer to create it by copying `${CLAUDE_PLUGIN_ROOT}/profile/profile.TEMPLATE.md` to that path. Do it only after the user agrees, and only if no file is there.
+- **If a section this task needs is missing or still `[placeholder]`:** ask for that one section in chat, one at a time, most important first. When the user answers, show the exact text and, only with their OK, append it to the end of `profile.md` as a new top-level section: a `## ` heading with the template's name for it followed by `(added YYYY-MM-DD)`. Append only. If an older placeholder copy of that heading is still in the file, the newest dated copy wins; tell the user they can delete the old one themselves. If they'd rather skip it, carry on without it and say what's missing.
+
 ## Step 0: load the profile
 
-Read `${CLAUDE_PLUGIN_ROOT}/profile/profile.md` before producing anything. It is the **only** source material. Do not invent, infer, or supplement employers, dates, degrees, certifications, tools, or metrics.
+Read `~/Documents/job-search/profile.md` before producing anything. It is the **only** source material. Do not invent, infer, or supplement employers, dates, degrees, certifications, tools, or metrics.
 
-- If the profile still has `[bracketed]` placeholders in Contact, LinkedIn dates, Work history, or Tools & skills, **stop** and ask the user to fill those in first. A resume built on placeholders is worse than none.
-- If the profile's *Files* section names a private notes file and it exists, read it as **background only**. Nothing in it is source material for output, and it never introduces a named third party, a characterization of someone else's conduct, or a credit dispute into any artifact. If it doesn't exist, say so once and carry on.
+- If the profile still has `[bracketed]` placeholders in Contact, LinkedIn dates, Work history, or Tools & skills, **stop** and ask for them, one section at a time (see *The profile*). A resume built on placeholders is worse than none.
+- If the profile's *Private notes* section names a file and it exists, read it as **background only**. Nothing in it is source material for output, and it never introduces a named third party, a characterization of someone else's conduct, or a credit dispute into any artifact. If it doesn't exist, say so once and carry on.
 
 ## How to work
 
@@ -56,9 +65,16 @@ Don't copy a JD's named tools, platforms, or methodologies into the resume becau
 
 If a JD requirement is adjacent to something the user has done, you may reference it once, clearly framed as adjacent, and tag it `[VERIFY BEFORE USING]`. Otherwise leave it out and name it under *Risks*. Check the profile's *Honest gaps* section: anything listed there never appears as experience.
 
+## Honest framings and positioning
+
+- **Honest framings:** if the profile's *Honest framings* section covers a claim, use that wording exactly. Never strengthen it.
+- **Positioning:** if the profile sets a primary identity or positioning modes, match the mode to this employer. Don't rebrand the user for each application.
+- **Targeted assets:** surface background the profile marks as targeted only where the profile says it fits; leave it out elsewhere.
+- **Objections:** if the JD or company type is likely to raise one of the profile's *Common objections*, address it once, quietly, in the resume summary or cover letter. Don't stack counters; one clean point beats three defensive ones.
+
 ## Choosing an angle
 
-Read the JD and lead with the matching emphasis from the user's real history. Common angles at tech companies:
+Read the JD and lead with the matching emphasis from the user's real history. Common angles:
 
 - **Builder / IC depth:** shipped work, technical or craft depth, ownership of a system, product area, or design surface.
 - **Leadership / management:** hiring, growing people, org design, running a team through ambiguity, cross-team delivery.
@@ -66,6 +82,8 @@ Read the JD and lead with the matching emphasis from the user's real history. Co
 - **Scale & reliability:** high-traffic systems, quality, incident reduction, process that held up as the company grew.
 - **Zero to one / startup:** shipping under ambiguity, wearing several hats, speed, scrappiness.
 - **Operations & process:** workflow redesign, tooling, efficiency gains, cross-functional programs.
+- **Implementation & delivery:** rollouts, go-lives, training users, vendor and stakeholder coordination, adoption.
+- **Data & analysis:** reporting, data quality, analysis that changed a decision.
 
 Don't turn every resume into the same resume. Pick the one or two angles the JD actually rewards and let the rest recede.
 
@@ -107,6 +125,10 @@ The nicer layout stays the default for human submission (emailing a recruiter or
 - **Hard cap: 225 words.** Shorter is fine.
 - Structure: name the role (and the referrer, if there is one) → most relevant recent experience → why this role and company are interesting → one earlier supporting point → short close.
 - Sounds like a person, not a template. Use the sign-off from the profile.
+
+## Application form questions
+
+If the user pastes questions from an application form (work authorization, start date, notice period, relocation, salary history), answer from the profile's *Answer-if-asked facts*, word for word. If the section is missing, ask for it (see *The profile*). Never guess these, and never volunteer them anywhere else.
 
 ## Recruiter replies
 
@@ -166,12 +188,12 @@ Hello,
 - what you changed and why
 - anything to avoid saying in the interview
 
-<!-- job-application-tailor v0.1.0 -->
+<!-- job-application-tailor v0.2.0 -->
 ```
 
 ## Version stamp
 
-Every resume, cover letter, or ATS-flat artifact ends with a one-line HTML comment carrying this skill's version: `<!-- job-application-tailor v0.1.0 -->`. In a PDF/DOCX, put it in file metadata or a tiny footer.
+Every resume, cover letter, or ATS-flat artifact ends with a one-line HTML comment carrying this skill's version: `<!-- job-application-tailor v0.2.0 -->`. In a PDF/DOCX, put it in file metadata or a tiny footer.
 
 ## Before you finalize, check
 
@@ -189,4 +211,5 @@ Every resume, cover letter, or ATS-flat artifact ends with a one-line HTML comme
 
 ## Changelog
 
+- **0.2.0**: Reads honest framings, positioning, targeted assets, and objections from the profile. Added implementation and data angles for non-engineering roles. The profile lives at `~/Documents/job-search/profile.md`, outside the plugin; this skill never edits it and asks for missing sections one at a time.
 - **0.1.0**: Initial community release.
