@@ -2,8 +2,8 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "community-job-search",
   "displayName": "Community Job Search Toolkit",
-  "version": "0.1.0",
-  "description": "Resume tailoring, job listing triage, recruiter triage, and a pipeline CRM for mid-career job seekers targeting tech companies",
+  "version": "0.2.0",
+  "description": "Listing triage, resume tailoring, recruiter triage, interview prep and debriefs, a pipeline CRM, networking tracker, overviews, and a weekly review for mid-career job seekers",
   "author": {
     "name": "community-job-search maintainers"
   }

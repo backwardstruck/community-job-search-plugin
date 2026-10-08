@@ -14,10 +14,16 @@
 .claude/
 
 # Your personal data. Keep it out of the repo if you fork or contribute back.
-# Your filled-in profile should live in your own local copy; see the README.
+# Your profile lives in ~/Documents/job-search/, outside this repo; see the README.
 profile.local.md
-profile-private.md
 pipeline.md
 *.pdf
 *.docx
 *.zip
+pipeline-log.md
+network.md
+prep-*.md
+debrief-*.md
+CARD-*.md
+*.bak*
+profile.md
