@@ -34,7 +34,7 @@ The user may have more than one chat open, and more than one may write this file
 - Re-read from disk immediately before any write. Note the mtime and size; abort the write if either changed since the read.
 - Bump the header `# Network — updated YYYY-MM-DD` to today on every write. Get the date from the system clock.
 - Write the whole file. No partial diffs.
-- Take a dated backup (`network.md.bak-YYYYMMDD-HHMM`) before structural changes.
+- Take a dated backup (`network.md.bak-YYYYMMDD-HHMM`) before every write, not only structural changes.
 - After writing, re-read the header to confirm the write landed.
 - **Stated vs. inferred:** what someone actually said is logged plainly. Anything inferred or proposed carries `— confirm` until the user confirms it. Never launder an inference into a fact by writing it twice.
 - Never invent entries or names. An unknown name is `[NAME UNKNOWN — confirm]`.

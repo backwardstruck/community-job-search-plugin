@@ -75,8 +75,10 @@ def main():
     p.add_argument('note', nargs='?', default='')
     p.add_argument('--log', help='append the line to this ships-log file')
     a = p.parse_args()
+    if a.log and not os.path.expanduser(a.log).endswith('.md'):
+        sys.exit('--log must be a .md file')
     d = counts(os.path.expanduser(a.pipeline))
-    out = line(d, a.note)
+    out = line(d, ' '.join(a.note.split()))
     print(out)
     if a.log:
         with io.open(os.path.expanduser(a.log), 'a', encoding='utf-8') as f:

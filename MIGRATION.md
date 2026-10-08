@@ -26,7 +26,7 @@ The big change: your profile no longer lives inside the plugin. It lives at **`~
    ls ~/Documents/job-search/profile.md   # should say "No such file"
    cp -n ~/Documents/profile-backup.md ~/Documents/job-search/profile.md
    ```
-   `cp -n` refuses to overwrite. If a `profile.md` is already there (for example, one a skill created from the template), open both files and merge by hand; don't replace either. Don't replace your profile with the template. Your existing headings mostly carry over; the skills read sections by meaning, so you don't need to rename them.
+   Then run `ls -l ~/Documents/job-search/profile.md` to confirm the copy happened (on some systems `cp -n` reports success even when it skips). `cp -n` refuses to overwrite. If a `profile.md` is already there (for example, one a skill created from the template), open both files and merge by hand; don't replace either. Don't replace your profile with the template. Your existing headings mostly carry over; the skills read sections by meaning, so you don't need to rename them.
 
 5. **Answer the missing-section prompts.** Use the plugin normally. When a skill needs a section your profile doesn't have yet, it asks for that one section, shows you the exact text, and appends it only if you say yes. You can skip any prompt; the skill carries on and tells you what's missing. To fill everything in at once instead, compare your file with `plugins/community-job-search/profile/profile.TEMPLATE.md`.
 
@@ -45,7 +45,7 @@ One line each: what it's for, and the skills that use it. *(optional)* sections 
 | Honest gaps | Real screen-out risks, never claimed as experience | job-listing-filter, job-application-tailor, interview-prep |
 | Honest framings *(optional)* | Truthful wording for things easy to overstate | job-application-tailor, interview-prep |
 | Domain experience | Domain fit; which jargon needs defining in prep | job-listing-filter, interview-prep |
-| Positioning *(optional)* | Identity, audience modes, targeted assets, objection counters | job-application-tailor, job-listing-filter, interview-prep |
+| Positioning *(optional)* | Identity, audience modes, targeted assets, "Common objections and your counters" | job-application-tailor, job-listing-filter, interview-prep |
 | Target roles | Tier 1, tier 2, and do-not-pursue titles | job-listing-filter, recruiter-triage |
 | Level & scope | The level and scope that make a role worth it | job-listing-filter, recruiter-triage |
 | Scope questions to ask early *(optional)* | Questions asked before any call gets booked | recruiter-triage, interview-prep |
