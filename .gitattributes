@@ -1,0 +1,4 @@
+*.md linguist-detectable=true
+*.md linguist-documentation=false
+README.md linguist-documentation
+MIGRATION.md linguist-documentation
